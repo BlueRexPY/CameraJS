@@ -5,10 +5,10 @@ var ctx = canvas.getContext("2d");
 var width = 80
 var height = 100
 
-var gradientList = ["░▒▓█", ".:;-+"];
-var gradient = gradientList[0];
+var gradientList = ["░▒▓█", ".:;-+","___cyvakzxn"];
+var changeState = 0;
+var gradient = gradientList[changeState];
 
-var changeState = false;
 
 const init = () => {
   if (navigator.mediaDevices.getUserMedia) {
@@ -79,14 +79,18 @@ document.querySelector("#change").addEventListener("click", (e) => changeStyle()
 document.querySelector("#copy").addEventListener("click", (e) => copyAscii());
 
 const changeStyle = () => {
-  if (!changeState) {
+  if (changeState == 0) {
+    changeState++
     width = 200
-    changeState = !changeState;
-    gradient = gradientList[1];
-  } else {
+    gradient = gradientList[changeState];
+  }else if (changeState == 1) {
+    changeState++
+    width = 100
+    gradient = gradientList[changeState];
+  }else{
+    changeState = 0
     width = 80
-    changeState = !changeState;
-    gradient = gradientList[0];
+    gradient = gradientList[changeState];
   }
 };
 

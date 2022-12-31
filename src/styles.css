@@ -44,6 +44,7 @@ canvas,video {
   font-size: 6px;
   line-height: 4px;
   color: white;
+  font-family:'Courier New', Courier, monospace;
 }
 #video{
   width: 400px;
